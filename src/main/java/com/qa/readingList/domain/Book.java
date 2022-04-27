@@ -147,9 +147,4 @@ public class Book {
 				&& Objects.equals(genre, other.genre) && id == other.id && Objects.equals(isbn, other.isbn)
 				&& Objects.equals(readingStatus, other.readingStatus);
 	}
-	
-	
-	
-	
-
 }
