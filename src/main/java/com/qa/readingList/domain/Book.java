@@ -1,5 +1,7 @@
 package com.qa.readingList.domain;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -108,6 +110,42 @@ public class Book {
 	}
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
+	}
+
+
+
+	// toString
+	
+	@Override
+	public String toString() {
+		return "Book [id=" + id + ", bookName=" + bookName + ", author=" + author + ", genre=" + genre
+				+ ", readingStatus=" + readingStatus + ", isbn=" + isbn + "]";
+	}
+
+
+	// hashCodes and equals
+		// hashCodes
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(author, bookName, genre, id, isbn, readingStatus);
+	}
+
+
+		// equals
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Book other = (Book) obj;
+		return Objects.equals(author, other.author) && Objects.equals(bookName, other.bookName)
+				&& Objects.equals(genre, other.genre) && id == other.id && Objects.equals(isbn, other.isbn)
+				&& Objects.equals(readingStatus, other.readingStatus);
 	}
 	
 	
