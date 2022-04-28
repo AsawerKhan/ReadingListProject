@@ -1,4 +1,4 @@
-package com.qa.baespring;
+package com.qa.readingList;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
