@@ -63,5 +63,15 @@ public class BookControllerIntegrationTest {
 				.andExpect(content().json(outputAsJSON));
 	}
 	
-
+	// getByID
+	@Test
+	public void getByIdTest() throws Exception {
+		Book outputID = new Book(1L, "Coding for Dummies", "Nikhil Abraham", "Educational", "To Be Read", "ISBN: 9781119293323");
+		String outputIDAsJSON = mapper.writeValueAsString(outputID);
+		
+		mvc.perform(get("/book/getById/1")
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk())
+				.andExpect(content().json(outputIDAsJSON));
+	}
 }
