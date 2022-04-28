@@ -43,6 +43,7 @@ public class BookController {
 		return new ResponseEntity<Book>(service.getById(id), HttpStatus.OK);
 	}
 	
+	// %20 replaces a space when making http requests
 	// Get by Book Name
 	@GetMapping("/getByBookName/{bookName}") // localhost:8080/book/getByBookName/bookName
 	public ResponseEntity<Book> getByBookName(@PathVariable String bookName) {
