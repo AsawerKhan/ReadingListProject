@@ -1,8 +1,12 @@
 package com.qa.readingList.controller;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +33,7 @@ public class BookControllerIntegrationTest {
 	@Autowired
 	private ObjectMapper mapper;
 	
-	// Test for create
+	// Create
 	@Test
 	public void createTest() throws Exception {
 		Book entry = new Book("The Book Thief", "Markus Zusak", "Historical Fiction", "To Be Read", "ISBN: 9781784162122");
@@ -45,4 +49,19 @@ public class BookControllerIntegrationTest {
 				.andExpect(content().json(resultAsJSON));
 	}
 	
+	// getAll
+	@Test
+	public void getAllTest() throws Exception {
+		Book book = new Book(1L, "Coding for Dummies", "Nikhil Abraham", "Educational", "To Be Read", "ISBN: 9781119293323");
+		List<Book> output = new ArrayList<>();
+		output.add(book);
+		String outputAsJSON = mapper.writeValueAsString(output);
+		
+		mvc.perform(get("/book/getAll")
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk())
+				.andExpect(content().json(outputAsJSON));
+	}
+	
+
 }
