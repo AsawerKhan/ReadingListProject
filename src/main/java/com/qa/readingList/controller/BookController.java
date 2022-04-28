@@ -7,8 +7,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 
 import com.qa.readingList.domain.Book;
 import com.qa.readingList.service.BookService;
@@ -69,8 +72,11 @@ public class BookController {
 		return new ResponseEntity<Book>(service.getByISBN(isbn), HttpStatus.OK);
 	}
 	
-	// Create (Post)
-	
+	// Create a Book (Post)
+	@PostMapping("/create") // localhost:8080/book/create
+	public ResponseEntity<Book> create(@RequestBody Book book) {
+		return new ResponseEntity<Book>(service.create(book), HttpStatus.CREATED);
+	}
 	
 	// Update (Put)
 	
