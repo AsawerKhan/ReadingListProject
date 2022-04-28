@@ -8,11 +8,12 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import com.qa.baespring.domain.User;
 import com.qa.readingList.domain.Book;
 import com.qa.readingList.service.BookService;
 
@@ -79,6 +80,10 @@ public class BookController {
 	}
 	
 	// Update (Put)
+	@PutMapping("/update/{id}") // localhost:8080/book/update/id
+	public ResponseEntity<Book> update(@PathVariable long id, @RequestBody Book book) {
+		return new ResponseEntity<Book>(service.update(id, book), HttpStatus.ACCEPTED);
+	}
 	
 	// Delete
 
