@@ -2,6 +2,7 @@ package com.qa.readingList.controller;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -66,12 +67,27 @@ public class BookControllerIntegrationTest {
 	// getByID
 	@Test
 	public void getByIdTest() throws Exception {
-		Book outputID = new Book(1L, "Coding for Dummies", "Nikhil Abraham", "Educational", "To Be Read", "ISBN: 9781119293323");
-		String outputIDAsJSON = mapper.writeValueAsString(outputID);
+		Book entry = new Book(1L, "Coding for Dummies", "Nikhil Abraham", "Educational", "To Be Read", "ISBN: 9781119293323");
+		String entryAsJSON = this.mapper.writeValueAsString(entry);
 		
 		mvc.perform(get("/book/getById/1")
-				.contentType(MediaType.APPLICATION_JSON))
-				.andExpect(status().isOk())
-				.andExpect(content().json(outputIDAsJSON));
+			.contentType(MediaType.APPLICATION_JSON))
+			.andExpect(status().isOk())
+			.andExpect(content().json(entryAsJSON));
+	}
+	
+	// Update
+	@Test
+	public void updateTest() throws Exception {
+		Book entry = new Book("The Book Thief", "Markus Zusak", "Historical Fiction", "To Be Read", "ISBN: 9781784162122");
+		Book result = new Book(1L, "The Book Thief", "Markus Zusak", "Historical Fiction", "To Be Read", "ISBN: 9781784162122");
+		String entryAsJSON = this.mapper.writeValueAsString(entry);
+		String resultAsJSON = this.mapper.writeValueAsString(result);
+		
+		mvc.perform(put("/book/update/1")
+			.contentType(MediaType.APPLICATION_JSON)
+			.content(entryAsJSON))
+			.andExpect(status().isAccepted())
+			.andExpect(content().json(resultAsJSON));
 	}
 }
