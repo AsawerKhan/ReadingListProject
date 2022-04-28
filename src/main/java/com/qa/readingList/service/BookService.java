@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.qa.baespring.domain.User;
 import com.qa.readingList.domain.Book;
 import com.qa.readingList.repo.BookRepo;
 
