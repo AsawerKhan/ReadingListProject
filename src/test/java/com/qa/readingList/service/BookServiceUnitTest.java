@@ -22,6 +22,7 @@ public class BookServiceUnitTest {
 	@MockBean
 	private BookRepo repo;
 	
+	// getAll
 	@Test
 	public void getAllTest() {
 		List<Book> output = new ArrayList<>();
@@ -34,6 +35,7 @@ public class BookServiceUnitTest {
 		Mockito.verify(this.repo, Mockito.times(1)).findAll();
 	}
 	
+	// getByID
 	@Test
 	public void getByIdTest() {
 		Optional<Book> OptionalOutput = Optional.of(new Book(1L,"Coding for Dummies", "Nikhil Abraham", "Educational", "To Be Read", "ISBN: 9781119293323"));
@@ -46,6 +48,7 @@ public class BookServiceUnitTest {
 		Mockito.verify(this.repo, Mockito.times(1)).findById(1L);
 	}
 	
+	// Create
 	@Test
 	public void createTest() {
 		Book input = new Book("Coding for Dummies", "Nikhil Abraham", "Educational", "To Be Read", "ISBN: 9781119293323");
@@ -58,6 +61,7 @@ public class BookServiceUnitTest {
 		Mockito.verify(this.repo, Mockito.times(1)).saveAndFlush(input);
 	}
 	
+	// Update
 	@Test
 	public void updateTest() {
 		Book input = new Book("Coding for Dummies", "Nikhil Abraham", "Educational", "To Be Read", "ISBN: 9781119293323");
@@ -73,6 +77,7 @@ public class BookServiceUnitTest {
 		Mockito.verify(this.repo, Mockito.times(1)).saveAndFlush(output);
 	}
 	
+	// Delete
 	@Test
 	public void deleteTest() {
 		Mockito.when(this.repo.existsById(1L)).thenReturn(false);
