@@ -68,9 +68,9 @@ public class BookController {
 	}
 	
 	// Get by ISBN
-	@GetMapping("/getByISBN/{isbn}") // localhost:8080/book/getByISBN/isbn
-	public ResponseEntity<Book> getByISBN(@PathVariable String isbn) {
-		return new ResponseEntity<Book>(service.getByISBN(isbn), HttpStatus.OK);
+	@GetMapping("/getByIsbn/{isbn}") // localhost:8080/book/getByISBN/isbn
+	public ResponseEntity<Book> getByIsbn(@PathVariable String isbn) {
+		return new ResponseEntity<Book>(service.getByIsbn(isbn), HttpStatus.OK);
 	}
 	
 	// Create a Book (Post)
