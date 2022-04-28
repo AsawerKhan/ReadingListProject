@@ -1,5 +1,6 @@
 package com.qa.readingList.controller;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
@@ -89,5 +90,13 @@ public class BookControllerIntegrationTest {
 			.content(entryAsJSON))
 			.andExpect(status().isAccepted())
 			.andExpect(content().json(resultAsJSON));
+	}
+	
+	// Delete
+	@Test
+	public void deleteTest() throws Exception {
+		mvc.perform(delete("/book/delete/1")
+			.contentType(MediaType.APPLICATION_JSON))
+			.andExpect(status().isNoContent());
 	}
 }
