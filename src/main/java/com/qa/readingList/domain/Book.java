@@ -18,7 +18,7 @@ public class Book {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Column(name = "bookName", nullable = false)
+	@Column(nullable = false)
 	private String bookName;
 	
 	@Column(nullable = false)
@@ -27,7 +27,7 @@ public class Book {
 	@Column(nullable = false)
 	private String genre;
 	
-	@Column(name = "readingStatus", nullable = false)
+	@Column(nullable = false)
 	private String readingStatus;
 	
 	@Column(nullable = true, unique = true)
