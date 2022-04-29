@@ -1,0 +1,23 @@
+h1 {
+    text-align: center;
+    color: rgb(79, 79, 79);
+}
+
+.results-div {
+    background-color: rgb(77, 112, 251);
+    position: absolute;
+    width: 1000px;
+    height: 85px;
+    left: 10px;
+}
+
+.buttonsdiv-el {
+    float: right;
+    margin-right: 10px;
+}
+
+.createbutton-el {
+    position: absolute;
+    top: 70px;
+    right: 10px;
+}
