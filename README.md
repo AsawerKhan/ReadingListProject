@@ -32,7 +32,7 @@ The functionality of the Front End remains to be established by creating request
 Documentation has been provided in the _documentation_ folder. This folder consists of a .pdf file of a step-by-step log of creating the project thus far. There is also a _Risk Assessment_ and _Risk Assessment Matrix,_ outlining the identified risks, along with their likelihood, impact, control measures and more. A copy of my presentation is also included.  
 
 ## Future Plans
-The goals for the Front End include:
+The goals for the project include:
 * Creating methods for testing for remaining request methods to increase test coverage
 * Creating a visually appealing web page
 * Creating the axios link from the Front End to the rest API using JavaScript
