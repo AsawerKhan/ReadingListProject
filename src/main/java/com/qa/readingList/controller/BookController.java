@@ -32,62 +32,62 @@ public class BookController {
 	}
 	
 	// Get ALL
-	@GetMapping("/getAll") // localhost:8080/book/getAll
+	@GetMapping("/getAll") // localhost:3306/book/getAll
 	public ResponseEntity<List<Book>> getAll() {
 		return new ResponseEntity<List<Book>>(service.getAll(), HttpStatus.OK);
 	}
 	
 	// Get by ID
-	@GetMapping("/getById/{id}") // localhost:8080/book/getById/id
+	@GetMapping("/getById/{id}") // localhost:3306/book/getById/id
 	public ResponseEntity<Book> getById(@PathVariable long id) {
 		return new ResponseEntity<Book>(service.getById(id), HttpStatus.OK);
 	}
 	
 	// %20 replaces a space when making http requests
 	// Get by Book Name
-	@GetMapping("/getByBookName/{bookName}") // localhost:8080/book/getByBookName/bookName
+	@GetMapping("/getByBookName/{bookName}") // localhost:3306/book/getByBookName/bookName
 	public ResponseEntity<Book> getByBookName(@PathVariable String bookName) {
 		return new ResponseEntity<Book>(service.getByBookName(bookName), HttpStatus.OK);
 	}
 	
 	// Get by Author
-	@GetMapping("/getByAuthor/{author}") // localhost:8080/book/getByAuthor/author
+	@GetMapping("/getByAuthor/{author}") // localhost:3306/book/getByAuthor/author
 	public ResponseEntity<Book> getByAuthor(@PathVariable String author) {
 		return new ResponseEntity<Book>(service.getByAuthor(author), HttpStatus.OK);
 	}
 	
 	// Get by Genre
-	@GetMapping("/getByGenre/{genre}") // localhost:8080/book/getByGenre/genre
+	@GetMapping("/getByGenre/{genre}") // localhost:3306/book/getByGenre/genre
 	public ResponseEntity<Book> getByGenre(@PathVariable String genre) {
 		return new ResponseEntity<Book>(service.getByGenre(genre), HttpStatus.OK);
 	}
 	
 	// Get by Reading Status
-	@GetMapping("/getReadingStatus/{readingStatus}") // localhost:8080/book/getByReadingStatus/readingStatus
+	@GetMapping("/getReadingStatus/{readingStatus}") // localhost:3306/book/getByReadingStatus/readingStatus
 	public ResponseEntity<Book> getByReadingStatus(@PathVariable String readingStatus) {
 		return new ResponseEntity<Book>(service.getByReadingStatus(readingStatus), HttpStatus.OK);
 	}
 	
 	// Get by ISBN
-	@GetMapping("/getByIsbn/{isbn}") // localhost:8080/book/getByISBN/isbn
+	@GetMapping("/getByIsbn/{isbn}") // localhost:3306/book/getByISBN/isbn
 	public ResponseEntity<Book> getByIsbn(@PathVariable String isbn) {
 		return new ResponseEntity<Book>(service.getByIsbn(isbn), HttpStatus.OK);
 	}
 	
 	// Create a Book (Post)
-	@PostMapping("/create") // localhost:8080/book/create
+	@PostMapping("/create") // localhost:3306/book/create
 	public ResponseEntity<Book> create(@RequestBody Book book) {
 		return new ResponseEntity<Book>(service.create(book), HttpStatus.CREATED);
 	}
 	
 	// Update a Book (Put)
-	@PutMapping("/update/{id}") // localhost:8080/book/update/id
+	@PutMapping("/update/{id}") // localhost:3306/book/update/id
 	public ResponseEntity<Book> update(@PathVariable long id, @RequestBody Book book) {
 		return new ResponseEntity<Book>(service.update(id, book), HttpStatus.ACCEPTED);
 	}
 	
 	// Delete a Book
-	@DeleteMapping("/delete/{id}") //localhost:8080/book/delete/id
+	@DeleteMapping("/delete/{id}") //localhost:3306/book/delete/id
 	public ResponseEntity<Boolean> delete(@PathVariable long id) {
 		return (service.delete(id))? new ResponseEntity<Boolean>(HttpStatus.NO_CONTENT):
 			 new ResponseEntity<Boolean>(HttpStatus.INTERNAL_SERVER_ERROR);

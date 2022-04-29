@@ -1,4 +1,4 @@
-const ADDR = "http://localhost:8080"
+const ADDR = "http://localhost:3306"
 
 // Divs
 const RESULTS_DIV = document.querySelector(".results-div");
