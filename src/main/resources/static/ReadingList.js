@@ -19,3 +19,19 @@ const getAll = () => {
         }
     }).catch((error) => console.error(error))
 }
+
+const printResult = (result) => {
+
+    const RESULTS_DIV = document.createElement("div");
+    RESULTS_DIV.setAttribute("class", "results-div");
+
+    const RESULTS = document.createElement("p");
+    RESULTS.setAttribute("class", "results");
+    RESULTS.textContent = `${result.bookName}  |  ${result.author}  |  ${result.genre}  |  ${result.readingStatus}  |  ${result.isbn}`
+
+   // const BUTTONS_DIV = document.createElement("div");
+   // BUTTONS_DIV.setAttribute("class", "buttonsdiv-el");
+
+    RESULTS-DIV.appendChild(RESULTS);
+
+}
