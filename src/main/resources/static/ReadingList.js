@@ -8,6 +8,8 @@ const CREATE_BUTTON = document.querySelector(".createbutton-el")
 
 // Inputs
 
+
+
 // Get Request
 const getAll = () => {
     axios.get(`${ADDR}/book/getAll`)
@@ -29,9 +31,11 @@ const printResult = (result) => {
     RESULTS.setAttribute("class", "results");
     RESULTS.textContent = `${result.bookName}  |  ${result.author}  |  ${result.genre}  |  ${result.readingStatus}  |  ${result.isbn}`
 
-   // const BUTTONS_DIV = document.createElement("div");
-   // BUTTONS_DIV.setAttribute("class", "buttonsdiv-el");
+    const BUTTONS_DIV = document.createElement("div");
+    BUTTONS_DIV.setAttribute("class", "buttonsdiv-el");
 
+    BUTTONS_DIV.appendChild(RESULTS);
+    RESULTS.appendChild(RESULTS_DIV);
     RESULTS-DIV.appendChild(RESULTS);
 
 }
